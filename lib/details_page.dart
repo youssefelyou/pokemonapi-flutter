@@ -2,18 +2,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class PokemonDetails extends StatefulWidget {
+class Details extends StatefulWidget {
   final pokemonDetail;
   final Color color;
   final int tag;
 
-  const PokemonDetails({super.key, required this.pokemonDetail, required this.color, required this.tag});
+  const Details({super.key, required this.pokemonDetail, required this.color, required this.tag});
 
   @override
-  _PokemonDetailsState createState() => _PokemonDetailsState();
+  _DetailsState createState() => _DetailsState();
 }
 
-class _PokemonDetailsState extends State<PokemonDetails> {
+class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;

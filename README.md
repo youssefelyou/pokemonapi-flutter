@@ -1,16 +1,10 @@
-# pokemonapi
+This is a flutter project developed by Youssef Elyourizi
 
-A new Flutter project.
+To consume the API i fetched the data from this json file : "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json"
 
-## Getting Started
+To do so i added the http package in pubspec.yaml file
+then i made a network request by calling the method http.get() and finally i converted the http.response into 
+a dart object and i displayed the data.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

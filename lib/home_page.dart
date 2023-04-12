@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:pokemonapi/pokemons_details.dart';
+import 'package:pokemonapi/details_page.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
 
   var pokemonapi="https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
   late List pokedex = [];
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     if(mounted){
-      fetchPokemonData();
+      fetchData();
     }
   }
   @override
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           onTap: (){
                             //TODO Navigate to detail screen describe each pokemon :)
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>PokemonDetails(pokemonDetail: pokedex[index], color: type=='Grass'? Colors.teal : type=="Fire"?Colors.red : type =="Water" ? Colors.lightBlue : type =="Bug" ? Colors.orange : type =="Psychic" ? Colors.deepPurple : type =="Electric" ? Colors.deepOrangeAccent : type =="Poison" ? Colors.deepPurpleAccent : type =="Normal" ? Colors.indigo : type =="Ground" ? Colors.brown : type =="Rock" ? Colors.cyan:Colors.pink,
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>Details(pokemonDetail: pokedex[index], color: type=='Grass'? Colors.teal : type=="Fire"?Colors.red : type =="Water" ? Colors.lightBlue : type =="Bug" ? Colors.orange : type =="Psychic" ? Colors.deepPurple : type =="Electric" ? Colors.deepOrangeAccent : type =="Poison" ? Colors.deepPurpleAccent : type =="Normal" ? Colors.indigo : type =="Ground" ? Colors.brown : type =="Rock" ? Colors.cyan:Colors.pink,
 
                                 tag: index)));
                           },
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
         )
     );
   }
-  void fetchPokemonData(){
+  void fetchData(){
     var url = Uri.https('raw.githubusercontent.com', '/Biuni/PokemonGO-Pokedex/master/pokedex.json');
     http.get(url).then((value) {
       if(value.statusCode==200){
